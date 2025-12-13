@@ -5,6 +5,56 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>MD. Sajid Islam | Portfolio</title>
   <style>
+    html { scroll-behavior: smooth; }
+
+/* Navbar */
+.navbar{
+  position: fixed;
+  top:0; left:0; right:0;
+  height:70px;
+  background:#0f172a;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 25px;
+  z-index:1000;
+}
+
+.navbar ul{
+  list-style:none;
+  display:flex;
+  gap:20px;
+}
+
+.navbar a{
+  color:#cbd5f5;
+  text-decoration:none;
+  padding:6px 10px;
+  border-radius:6px;
+}
+
+.navbar a.active,
+.navbar a:hover{
+  background:#2563eb;
+  color:#fff;
+}
+
+/* Section animation */
+section{
+  opacity:0;
+  transform:translateY(30px);
+  transition:all 0.6s ease;
+}
+
+section.show{
+  opacity:1;
+  transform:none;
+}
+
+body{
+  padding-top:80px;
+}
+
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: Arial, Helvetica, sans-serif;
@@ -75,7 +125,14 @@
   </style>
 </head>
 <body>
-
+  <nav class="navbar">
+  <div class="logo">Sazid</div>
+  <ul>
+    <li><a href="#home" class="nav-link active">Home</a></li>
+    <li><a href="#about" class="nav-link">About</a></li>
+    <li><a href="#contact" class="nav-link">Contact</a></li>
+  </ul>
+</nav>
   <header>
     <h1>Personal Portfolio Assignment</h1>
     <p><strong>MD. Sajid Islam</strong></p>
@@ -119,6 +176,28 @@
   <footer>
     <p>© 2025 MD. Sajid Islam. All rights reserved.</p>
   </footer>
+  <script>
+const sections = document.querySelectorAll('section');
+const links = document.querySelectorAll('.nav-link');
+
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(sec => {
+    if (pageYOffset >= sec.offsetTop - 120) {
+      current = sec.getAttribute('id');
+      sec.classList.add('show');
+    }
+  });
+
+  links.forEach(link => {
+    link.classList.remove('active');
+    if (link.getAttribute('href') === '#' + current) {
+      link.classList.add('active');
+    }
+  });
+});
+</script>
+
 
 </body>
 </html>
