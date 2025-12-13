@@ -1,16 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MD. Sajid Islam | Portfolio</title>
-  <style>
-    html { scroll-behavior: smooth; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MD. Sajid Islam | Portfolio</title>
 
-/* Navbar */
-.navbar{
-  position: fixed;
-  top:0; left:0; right:0;
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:#f4f6f8;
+  color:#333;
+}
+
+/* NAVBAR */
+nav{
+  position:fixed;
+  top:0;left:0;right:0;
   height:70px;
   background:#0f172a;
   display:flex;
@@ -20,112 +28,83 @@
   z-index:1000;
 }
 
-.navbar ul{
+nav .logo{
+  color:#fff;
+  font-weight:bold;
+  font-size:1.1rem;
+}
+
+nav ul{
   list-style:none;
   display:flex;
   gap:20px;
 }
 
-.navbar a{
+nav a{
   color:#cbd5f5;
   text-decoration:none;
-  padding:6px 10px;
+  padding:6px 12px;
   border-radius:6px;
 }
 
-.navbar a.active,
-.navbar a:hover{
+nav a.active, nav a:hover{
   background:#2563eb;
   color:#fff;
 }
 
-/* Section animation */
-section{
-  opacity:0;
-  transform:translateY(30px);
-  transition:all 0.6s ease;
+/* PAGE CONTAINER */
+main{
+  padding-top:90px;
+  max-width:1000px;
+  margin:auto;
 }
 
-section.show{
-  opacity:1;
-  transform:none;
+/* PAGE STYLE */
+.page{
+  display:none;
+  animation:fadeSlide .6s ease forwards;
 }
 
-body{
-  padding-top:80px;
+.page.active{
+  display:block;
 }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: #f4f6f8;
-      color: #333;
-      line-height: 1.6;
-      transition: background 0.6s ease, color 0.6s ease, opacity 0.6s ease;
-    }
+@keyframes fadeSlide{
+  from{opacity:0;transform:translateY(25px)}
+  to{opacity:1;transform:none}
+}
 
-    body.dark {
-      background: #0f172a;
-      color: #e5e7eb;
-    }
+h1,h2{
+  color:#0f172a;
+}
 
-    header {
-      background: #0f172a;
-      color: #fff;
-      padding: 60px 20px;
-      text-align: center;
-    }
+h2{
+  border-left:5px solid #2563eb;
+  padding-left:10px;
+  margin-bottom:15px;
+}
 
-    body.dark header {
-      background: #020617;
-    }
+.card{
+  background:#fff;
+  padding:20px;
+  border-radius:8px;
+  box-shadow:0 4px 10px rgba(0,0,0,.08);
+  margin-bottom:20px;
+}
 
-    section {
-      max-width: 1000px;
-      margin: 40px auto;
-      padding: 0 20px;
-    }
-
-    h2 {
-      font-size: 1.8rem;
-      margin-bottom: 15px;
-      color: #0f172a;
-      border-left: 5px solid #2563eb;
-      padding-left: 10px;
-    }
-
-    body.dark h2 {
-      color: #e5e7eb;
-    }
-
-    .card {
-      background: #fff;
-      padding: 20px;
-      margin-bottom: 20px;
-      border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-    }
-
-    body.dark .card {
-      background: #020617;
-      box-shadow: 0 4px 10px rgba(255,255,255,0.05);
-    }
-
-    .toggle {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      padding: 10px 15px;
-      background: #2563eb;
-      color: #fff;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-  </style>
+footer{
+  text-align:center;
+  padding:20px;
+  margin-top:40px;
+  background:#0f172a;
+  color:#fff;
+}
+</style>
 </head>
+
 <body>
-  <nav class="navbar">
+
+<nav>
   <div class="logo">Sazid</div>
   <ul>
     <li><a href="#home" class="nav-link active">Home</a></li>
@@ -133,71 +112,74 @@ body{
     <li><a href="#contact" class="nav-link">Contact</a></li>
   </ul>
 </nav>
-  <header>
-    <h1>Personal Portfolio Assignment</h1>
-    <p><strong>MD. Sajid Islam</strong></p>
-    <p>Student | Aspiring Web Developer</p>
-  </header>
 
-  <section id="home">
-    <h2>Home</h2>
-    <div class="card">
-      <p>
-        Welcome to my personal portfolio website. This portfolio has been created as part of an academic
-        assignment to showcase my personal information, technical skills, projects, and contact details.
-        It reflects my learning progress in web development using HTML and CSS.
-      </p>
-    </div>
-  </section>
+<main>
 
-  <section id="about">
-    <h2>About Me</h2>
-    <div class="card">
-      <p>
-        My name is <strong>MD. Sajid Islam</strong>, and I am a student of the Department of Computer Science
-        and Engineering at Daffodil International University. I have a strong interest in web development
-        and enjoy creating clean, responsive, and user-friendly websites. I am continuously learning
-        modern web technologies and improving my problem-solving skills to build a strong foundation for
-        my future career.
-      </p>
-    </div>
-  </section>
+<section id="home" class="page active">
+  <h2>Home</h2>
+  <div class="card">
+    <p>
+      Welcome to my personal portfolio website. This portfolio has been created
+      as part of an academic assignment to showcase my skills, projects, and
+      contact information. It reflects my learning journey in web development.
+    </p>
+  </div>
+</section>
 
-  <section>
-    <h2>Contact</h2>
-    <div class="card">
-      <p><strong>Mobile:</strong> <a href="tel:01703351466">01703-351466</a></p>
-      <p><strong>Email:</strong> <a href="mailto:sazidislam809@gmail.com">sazidislam809@gmail.com</a></p>
-      <p><strong>GitHub Profile:</strong> <a href="https://github.com/Sazid164" target="_blank">https://github.com/Sazid164</a></p>
-      <p><strong>Project Repo:</strong> <a href="https://github.com/Sazid164/portfolio-assignment" target="_blank">github.com/Sazid164/portfolio-assignment</a></p>
-    </div>
-  </section>
+<section id="about" class="page">
+  <h2>About Me</h2>
+  <div class="card">
+    <p>
+      My name is <strong>MD. Sajid Islam</strong>, a student of Computer Science
+      and Engineering at Daffodil International University. I am passionate
+      about web development and enjoy building clean, responsive, and interactive
+      web applications using modern techniques.
+    </p>
+  </div>
+</section>
 
-  <footer>
-    <p>© 2025 MD. Sajid Islam. All rights reserved.</p>
-  </footer>
-  <script>
-const sections = document.querySelectorAll('section');
-const links = document.querySelectorAll('.nav-link');
+<section id="contact" class="page">
+  <h2>Contact</h2>
+  <div class="card">
+    <p><strong>Mobile:</strong> <a href="tel:01703351466">01703-351466</a></p>
+    <p><strong>Email:</strong> <a href="mailto:sazidislam809@gmail.com">sazidislam809@gmail.com</a></p>
+    <p><strong>GitHub:</strong> <a href="https://github.com/Sazid164" target="_blank">github.com/Sazid164</a></p>
+    <p><strong>Project Repo:</strong> <a href="https://github.com/Sazid164/portfolio-assignment" target="_blank">portfolio-assignment</a></p>
+  </div>
+</section>
 
-window.addEventListener('scroll', () => {
-  let current = '';
-  sections.forEach(sec => {
-    if (pageYOffset >= sec.offsetTop - 120) {
-      current = sec.getAttribute('id');
-      sec.classList.add('show');
-    }
-  });
+</main>
 
-  links.forEach(link => {
-    link.classList.remove('active');
-    if (link.getAttribute('href') === '#' + current) {
-      link.classList.add('active');
-    }
+<footer>
+  <p>© 2025 MD. Sajid Islam. All rights reserved.</p>
+</footer>
+
+<script>
+const links=document.querySelectorAll('.nav-link');
+const pages=document.querySelectorAll('.page');
+
+function showPage(id){
+  pages.forEach(p=>p.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+
+  links.forEach(l=>l.classList.remove('active'));
+  document.querySelector(`a[href="#${id}"]`).classList.add('active');
+}
+
+links.forEach(link=>{
+  link.addEventListener('click',e=>{
+    e.preventDefault();
+    const id=link.getAttribute('href').substring(1);
+    history.pushState(null,'','#'+id);
+    showPage(id);
   });
 });
-</script>
 
+window.addEventListener('load',()=>{
+  const hash=location.hash.replace('#','')||'home';
+  showPage(hash);
+});
+</script>
 
 </body>
 </html>
