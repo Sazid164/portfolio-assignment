@@ -158,20 +158,30 @@
 </head>
 
 <body>
-/* Live animated background */
+/* LIGHT MODE (default) */
 body {
-  background: linear-gradient(
-    -45deg,
-    #f4f6f8,
-    #e0e7ff,
-    #fdf2f8,
-    #ecfeff
-  );
-  background-size: 400% 400%;
-  animation: gradientBG 15s ease infinite;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #333;
+  background: #f4f6f8;
+  transition: background 0.6s ease, color 0.6s ease;
 }
 
-@keyframes gradientBG {
+/* DARK MODE – LIVE ANIMATED BACKGROUND */
+body.dark {
+  color: #e5e7eb;
+  background: linear-gradient(
+    -45deg,
+    #020617,
+    #0f172a,
+    #020617,
+    #1e293b
+  );
+  background-size: 400% 400%;
+  animation: darkBG 15s ease infinite;
+}
+
+/* Animation */
+@keyframes darkBG {
   0% {
     background-position: 0% 50%;
   }
@@ -182,6 +192,7 @@ body {
     background-position: 0% 50%;
   }
 }
+
 
 <nav>
   <ul>
@@ -335,6 +346,7 @@ showSection(current);
 
 </body>
 </html>
+
 
 
 
