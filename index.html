@@ -158,6 +158,30 @@
 </head>
 
 <body>
+/* Live animated background */
+body {
+  background: linear-gradient(
+    -45deg,
+    #f4f6f8,
+    #e0e7ff,
+    #fdf2f8,
+    #ecfeff
+  );
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+}
+
+@keyframes gradientBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
 
 <nav>
   <ul>
@@ -311,6 +335,7 @@ showSection(current);
 
 </body>
 </html>
+
 
 
 
